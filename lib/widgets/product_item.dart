@@ -22,7 +22,7 @@ class ProductItem extends StatelessWidget {
             );
           },
           child: Image.network(
-            product.imgUrl,
+            product.imgUrl!,
             fit: BoxFit.cover,
           ),
         ),
@@ -35,16 +35,16 @@ class ProductItem extends StatelessWidget {
 
 
             },
-            icon: Icon(product.isFav ? Icons.favorite : Icons.favorite_border),
+            icon: Icon(product.isFav! ? Icons.favorite : Icons.favorite_border),
             color: Theme.of(context).accentColor,
           ),
 
           backgroundColor: Colors.black54,
-          title: Text(product.title, textAlign: TextAlign.center,),
+          title: Text(product.title!, textAlign: TextAlign.center,),
           trailing: IconButton(
             onPressed: (){
 
-              cart.addItem(product.id, product.price, product.title);
+              cart.addItem(product.id!, product.price!, product.title!);
 
               Scaffold.of(context).hideCurrentSnackBar();
               Scaffold.of(context).showSnackBar(
@@ -55,7 +55,7 @@ class ProductItem extends StatelessWidget {
                         label: 'UNDO',
                         onPressed: (){
 
-                          cart.removeSingleItem(product.id);
+                          cart.removeSingleItem(product.id!);
 
                         }
                     ),

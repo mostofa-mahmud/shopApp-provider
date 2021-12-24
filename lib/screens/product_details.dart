@@ -12,7 +12,7 @@ class ProductDetailScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(loadedProduct.title),
+        title: Text(loadedProduct.title!),
       ),
 
 
@@ -25,7 +25,7 @@ class ProductDetailScreen extends StatelessWidget {
               width: double.infinity,
 
               child: Image.network(
-                loadedProduct.imgUrl,
+                loadedProduct.imgUrl!,
                 fit: BoxFit.cover,
               ),
             ),
@@ -40,7 +40,7 @@ class ProductDetailScreen extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 width: double.infinity,
                 child: Text(
-                  loadedProduct.description,
+                  loadedProduct.description!,
                   textAlign: TextAlign.center,
                 )
             )
