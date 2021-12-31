@@ -60,7 +60,7 @@ class ProductsProvider with ChangeNotifier {
 
 
   Future<void> addProduct(Product product){
-    const url = 'https://shopapp-66975-default-rtdb.asia-southeast1.firebasedatabase.app/products.json';
+    const url = 'https://shopapp-66975-default-rtdb.asia-southeast1.firebasedatabase.app/products';
 
     return http.post(Uri.parse(url), body: json.encode({
       'title': product.title,
@@ -79,12 +79,12 @@ class ProductsProvider with ChangeNotifier {
           imgUrl: product.imgUrl
       );
       _items.add(newProduct);
-      //_items.insert(0, newProduct);
       notifyListeners();
 
+    }).catchError((error){
+      print(error);
+      throw error;
     });
-
-    return Future.value();
   }
 
 
